@@ -1,0 +1,630 @@
+.experience-section {
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  width: 100% !important;
+  margin: 0 !important;
+  left: 0;
+  right: 0;
+  max-width: none !important;
+}
+
+/* Removed container override - now using experience-timeline as main container */
+
+.experience-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.experience-section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.experience-section-subtitle {
+  font-size: 1.2rem;
+  color: #4ecdc4;
+  font-weight: 500;
+}
+
+.experience-timeline-container {
+  position: relative;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 60px;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Removed timeline line for Experience section */
+
+.experience-timeline-item {
+  position: relative;
+  margin-bottom: 120px;
+  padding: 30px 0;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* Removed marker styling for Experience section */
+
+/* Removed marker dot styling for Experience section */
+
+/* Removed marker dot pseudo-elements for Experience section */
+
+/* Removed all marker-related styling and animations for Experience section */
+
+.experience-timeline-content {
+  width: 100% !important;
+  padding: 20px 0;
+  position: relative;
+  max-width: none !important;
+  margin: 0 !important;
+  margin-left: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.experience-work-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 60px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  width: 95% !important;
+  max-width: none !important;
+  min-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+/* Force override for experience work card width - specific to experience section only */
+.experience-work-card {
+  width: 95% !important;
+  max-width: none !important;
+  min-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.experience-work-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+}
+
+.experience-work-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.25);
+  border-color: rgba(78, 205, 196, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.experience-title-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.experience-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.experience-company {
+  font-size: 1.2rem;
+  color: #4ecdc4;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.experience-location {
+  color: #ccc;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.experience-duration {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.experience-type {
+  background: rgba(78, 205, 196, 0.2);
+  color: #4ecdc4;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.experience-description {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.experience-responsibilities,
+.experience-technologies,
+.experience-achievements {
+  margin-bottom: 25px;
+}
+
+.key-responsibilities {
+  margin-bottom: 30px;
+}
+
+.key-responsibilities h5 {
+  color: #4ecdc4;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.key-responsibilities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.key-responsibilities li {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.key-responsibilities li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #4ecdc4;
+  font-size: 0.8rem;
+}
+
+.project-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.project-duration {
+  color: #4ecdc4;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-role {
+  background: rgba(78, 205, 196, 0.2);
+  color: #4ecdc4;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.project-scope {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(78, 205, 196, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #4ecdc4;
+}
+
+.project-title {
+  color: #4ecdc4;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(78, 205, 196, 0.3);
+  padding-bottom: 8px;
+}
+
+.project-role {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.project-software,
+.project-responsibilities,
+.project-achievements {
+  margin-bottom: 20px;
+}
+
+.project-software h6,
+.project-responsibilities h6,
+.project-achievements h6 {
+  color: #4ecdc4;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.project-responsibilities ul,
+.project-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-responsibilities li,
+.project-achievements li {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.project-responsibilities li::before,
+.project-achievements li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #4ecdc4;
+  font-size: 0.7rem;
+}
+
+.project-deliverables,
+.project-impact {
+  margin-bottom: 20px;
+}
+
+.project-deliverables h6,
+.project-impact h6 {
+  color: #4ecdc4;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.project-deliverables ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-deliverables li {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.project-deliverables li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #4ecdc4;
+  font-size: 0.7rem;
+}
+
+.project-impact p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 10px;
+  background: rgba(78, 205, 196, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #4ecdc4;
+}
+
+.technical-skills-section {
+  margin-bottom: 25px;
+}
+
+.technical-skills-section h5 {
+  color: #4ecdc4;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.skill-category {
+  margin-bottom: 15px;
+}
+
+.skill-category h6 {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.experience-responsibilities h5,
+.experience-technologies h5,
+.experience-achievements h5 {
+  color: #4ecdc4;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.experience-responsibilities ul,
+.experience-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-responsibilities li,
+.experience-achievements li {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.experience-responsibilities li::before,
+.experience-achievements li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #4ecdc4;
+  font-size: 0.8rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tag {
+  background: rgba(78, 205, 196, 0.1);
+  color: #4ecdc4;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(78, 205, 196, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (min-width: 1400px) {
+  .experience-timeline-container {
+    max-width: 100% !important;
+    padding: 0 80px;
+  }
+  
+  .experience-work-card {
+    width: 90% !important;
+    max-width: none !important;
+    min-width: 1000px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .experience-timeline-container {
+    max-width: 100% !important;
+    padding: 0 40px;
+  }
+  
+  .experience-work-card {
+    width: 95% !important;
+    max-width: none !important;
+    min-width: 600px !important;
+  }
+  
+  .experience-timeline-content {
+    max-width: none;
+  }
+  
+  .experience-work-card {
+    padding: 50px;
+  }
+  .experience-title {
+    font-size: 1.8rem;
+  }
+  .experience-company {
+    font-size: 1.1rem;
+  }
+  .experience-description {
+    font-size: 0.95rem;
+  }
+  .project-title {
+    font-size: 1.2rem;
+  }
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .experience-timeline-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  .experience-work-card {
+    width: 98% !important;
+    max-width: none !important;
+    min-width: 400px !important;
+  }
+  
+  .experience-timeline-content {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .experience-work-card {
+    padding: 25px;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-meta {
+    align-items: flex-start;
+  }
+
+  .experience-title {
+    font-size: 1.5rem;
+  }
+
+  .experience-company {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .experience-timeline-content {
+    margin-left: 0;
+  }
+
+  .experience-work-card {
+    padding: 20px;
+  }
+
+  .experience-title {
+    font-size: 1.3rem;
+  }
+
+  .experience-company {
+    font-size: 1rem;
+  }
+
+  .tech-tags {
+    gap: 8px;
+  }
+
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

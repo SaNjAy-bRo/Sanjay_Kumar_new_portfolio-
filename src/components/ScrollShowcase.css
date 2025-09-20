@@ -1,0 +1,183 @@
+/* Scoped scroll-driven animation showcase */
+
+/* Wrapper provides the scroll range instead of body */
+.fx-wrapper { position: relative; height: 0; }
+
+.fx-pinner {
+  --line: color-mix(in hsl, canvasText, canvas 75%);
+  position: fixed; /* behave as background overlay */
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(1600px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 2rem;
+  opacity: 0; /* fade in on entry */
+  z-index: -1; /* behind all foreground content */
+  pointer-events: none; /* avoid blocking interactions */
+}
+
+/* No grid lines for cleaner look */
+
+.fx-progress {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  display: grid;
+  place-items: start;
+  padding-inline: 0.75rem;
+  position: relative;
+}
+
+.fx-sync {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+}
+
+.fx-sync span {
+  position: absolute;
+  right: 0.75rem;
+  display: inline-block;
+  top: calc(var(--p, 0) * 1%);
+  transform: translateY(-50%);
+  color: color-mix(in hsl, canvas, canvasText);
+}
+
+.fx-sync span::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200vmax;
+  height: 2px;
+  background: color-mix(in hsl, var(--fx-accent, #4ecdc4), #0000 55%);
+  translate: -50% -50%;
+  z-index: -1;
+}
+
+.fx-heading { position: relative; padding-left: 4px; }
+
+.fx-heading::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 100vh;
+  top: 50%;
+  translate: 0 -50%;
+  border-inline: 2px solid var(--line);
+  pointer-events: none;
+}
+
+.fx-heading h1 {
+  margin: 0;
+  line-height: 1;
+  /* Progressive fill: accent up to --p%, then transparent */
+  background-image: linear-gradient(
+    90deg,
+    var(--fx-accent, #4ecdc4) 0%,
+    var(--fx-accent, #4ecdc4) calc(var(--p, 0) * 1%),
+    rgba(255,255,255,0) calc(var(--p, 0) * 1%),
+    rgba(255,255,255,0) 100%
+  );
+  background-repeat: no-repeat;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px canvasText;
+  display: inline;
+  letter-spacing: 0.05ch;
+  font-size: clamp(28px, 6vw, 64px);
+}
+
+/* CTA below headline */
+.fx-cta { 
+  margin-top: 14px; 
+  pointer-events: auto; 
+}
+
+.fx-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid color-mix(in hsl, var(--fx-accent, #4ecdc4), canvasText 30%);
+  border-radius: 999px;
+  color: canvasText;
+  text-decoration: none;
+  background: color-mix(in hsl, canvas, canvasText 4%);
+  backdrop-filter: blur(6px);
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.fx-cta-btn:hover {
+  transform: translateY(-1px);
+  background: color-mix(in hsl, canvas, canvasText 8%);
+  border-color: var(--fx-accent, #4ecdc4);
+}
+
+.fx-cta-btn:active { transform: translateY(0); }
+
+.fx-measure {
+  position: absolute;
+  height: 1lh;
+  aspect-ratio: 1;
+  right: 0;
+  bottom: 100%;
+}
+
+/* Scroll-driven animations (progressive enhancement) */
+@supports (animation-timeline: scroll()) and (animation-range: entry 0 100%) {
+  @property --fx-progress {
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+  }
+
+  .fx-pinner {
+    --fx-progress: 0;
+    /* progress tied to wrapper's view timeline */
+    animation: fx-progress both linear, fx-appear both linear;
+    animation-timeline: --fx, --fx;
+    animation-range: entry 10% exit 90%, entry 0% entry 12%;
+    counter-set: fxp var(--fx-progress);
+  }
+
+  .fx-sync span {
+    translate: 0 calc((-50% + 1px) + (((var(--fx-progress) * 1cqh) - 1px)));
+  }
+
+  .fx-sync span::after {
+    background: linear-gradient(90deg, light-dark(#fff, #000) 0 0) 50% 50% / 100% 4px no-repeat;
+    content: counter(fxp) '% complete';
+    color: color-mix(in hsl, canvas, canvasText);
+    position: absolute;
+    font-variant: tabular-nums;
+    padding-inline: 0.125rem;
+    right: 0;
+  }
+
+  .fx-heading h1 { background-position-x: 200%, 0; animation: fx-fill both linear; animation-timeline: --fx; animation-range: entry 10% exit 90%; }
+
+  @keyframes fx-fill { to { background-position-x: 100%, 0; } }
+  @keyframes fx-progress { to { --fx-progress: 100; } }
+  @keyframes fx-appear { from { opacity: 0; } to { opacity: 1; } }
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .fx-sync span {
+    right: 1rem;
+    transform-origin: 100% 50%;
+    rotate: -90deg;
+    translate: 0 -50%;
+  }
+}
+
+/* Portfolio accent variables integration */
+:root { --fx-accent: #4ecdc4; }
+
+
+
