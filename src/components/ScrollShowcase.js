@@ -5,17 +5,17 @@ const ScrollShowcase = React.memo(() => {
   const [progress, setProgress] = useState(0); // 0..100
   const [visible, setVisible] = useState(false);
 
-  // Compute start/end between About and Footer
+  // Compute start/end between About and Projects (well before footer)
   useEffect(() => {
     const getBounds = () => {
       const about = document.getElementById('about');
-      const footer = document.querySelector('footer.footer');
+      const projects = document.getElementById('projects');
       const h = window.innerHeight || 1;
-      // Start a bit after About begins; finish well before footer starts
+      // Start a bit after About begins; finish after Projects section
       const START_OFFSET_VH = 0.15; // 15% viewport above About
-      const END_OFFSET_VH = 1.50;   // finish when footer is 1.5 viewport heights away (well before footer)
+      const END_OFFSET_VH = 0.50;   // finish 50% viewport after Projects section
       const start = about ? about.getBoundingClientRect().top + window.scrollY - h * START_OFFSET_VH : 0;
-      const end = footer ? footer.getBoundingClientRect().top + window.scrollY - h * END_OFFSET_VH : (document.body.scrollHeight - h);
+      const end = projects ? projects.getBoundingClientRect().bottom + window.scrollY + h * END_OFFSET_VH : (document.body.scrollHeight - h);
       return { start, end };
     };
 
