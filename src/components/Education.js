@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import './Education.css';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -7,11 +7,10 @@ const Education = () => {
   // Using event listener directly for smooth parallax without re-renders
   
   // Create refs for each marker dot
-  const markerRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null)
-  ];
+  const markerRef1 = useRef(null);
+  const markerRef2 = useRef(null);
+  const markerRef3 = useRef(null);
+  const markerRefs = useMemo(() => [markerRef1, markerRef2, markerRef3], []);
 
   // Enhanced parallax scroll effect
   useEffect(() => {

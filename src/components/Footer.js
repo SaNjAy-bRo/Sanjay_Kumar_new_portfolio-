@@ -128,8 +128,8 @@ const Footer = () => {
               © {currentYear} Sanjay Kumar. All rights reserved.
             </p>
             <div className="footer-bottom-links">
-              <a href="#" className="footer-bottom-link">Privacy Policy</a>
-              <a href="#" className="footer-bottom-link">Terms of Service</a>
+              <button className="footer-bottom-link">Privacy Policy</button>
+              <button className="footer-bottom-link">Terms of Service</button>
             </div>
           </div>
           <button 
