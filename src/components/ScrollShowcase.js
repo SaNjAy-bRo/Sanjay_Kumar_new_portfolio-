@@ -5,7 +5,7 @@ const ScrollShowcase = React.memo(() => {
   const [progress, setProgress] = useState(0); // 0..100
   const [visible, setVisible] = useState(false);
 
-  // Compute start/end between About and Projects (well before footer)
+  // Compute start/end between About and Projects (well before footer) - Deployed
   useEffect(() => {
     const getBounds = () => {
       const about = document.getElementById('about');
