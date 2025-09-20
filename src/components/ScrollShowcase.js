@@ -13,7 +13,7 @@ const ScrollShowcase = React.memo(() => {
       const h = window.innerHeight || 1;
       // Start a bit after About begins; finish well before footer starts
       const START_OFFSET_VH = 0.15; // 15% viewport above About
-      const END_OFFSET_VH = 0.80;   // finish when footer is ~80% viewport away
+      const END_OFFSET_VH = 1.50;   // finish when footer is 1.5 viewport heights away (well before footer)
       const start = about ? about.getBoundingClientRect().top + window.scrollY - h * START_OFFSET_VH : 0;
       const end = footer ? footer.getBoundingClientRect().top + window.scrollY - h * END_OFFSET_VH : (document.body.scrollHeight - h);
       return { start, end };
