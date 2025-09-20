@@ -13,7 +13,7 @@ const ScrollShowcase = React.memo(() => {
       const docHeight = document.documentElement.scrollHeight;
       // Start a bit after About begins; finish at 80% of document height
       const START_OFFSET_VH = 0.15; // 15% viewport above About
-      const DOCUMENT_PERCENTAGE = 0.80; // Complete at 80% of document height
+      const DOCUMENT_PERCENTAGE = 0.92; // Complete at 80% of document height
       const start = about ? about.getBoundingClientRect().top + window.scrollY - h * START_OFFSET_VH : 0;
       const end = docHeight * DOCUMENT_PERCENTAGE; // Complete at 80% of total document height
       return { start, end };
