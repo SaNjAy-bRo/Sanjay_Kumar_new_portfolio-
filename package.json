@@ -4,7 +4,7 @@
   "description": "Modern portfolio website showcasing LiDAR Engineering and Full-Stack Web Development expertise with React, glassmorphism design, and performance optimizations.",
   "keywords": ["portfolio", "react", "lidadr", "web-development", "geospatial", "qgis", "python", "javascript"],
   "author": "Sanjay Kumar",
-  "homepage": "https://github.com/SaNjAy-bRo/Sanjay_Kumar_new_portfolio-",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
