@@ -1,0 +1,178 @@
+/* Global Animation System - No Conflicts */
+
+/* Ensure all sections are visible by default */
+section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  min-height: 200px;
+}
+
+/* Debug styles to ensure visibility */
+#about, #skills, #education {
+  background: rgba(255, 0, 0, 0.1) !important;
+  border: 2px solid rgba(255, 0, 0, 0.3) !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Base animation states */
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Fade animations */
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide animations */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-in-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-in-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-in-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale animations */
+.scale-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s ease-out;
+}
+
+.scale-in.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger animations */
+.stagger-container .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+}
+
+.stagger-container.animate-in .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Counter animations */
+.counter {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s ease-out;
+}
+
+.counter.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Glow effects */
+.glow-on-scroll {
+  transition: all 0.3s ease;
+}
+
+.glow-on-scroll.animate-in {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* Text reveal animations */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal .text-line {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.6s ease-out;
+}
+
+.text-reveal.animate-in .text-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bounce animations */
+.bounce-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bounce-in.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Progress bar animations */
+.progress-bar {
+  width: 0;
+  transition: width 1.2s ease-out;
+}
+
+.progress-bar.animate-in {
+  width: var(--progress-width);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-up,
+  .scale-in,
+  .counter,
+  .bounce-in,
+  .progress-bar {
+    transition: none;
+    animation: none;
+  }
+  
+  .animate-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
