@@ -9,20 +9,24 @@ const ScrollShowcase = React.memo(() => {
   useEffect(() => {
     const getBounds = () => {
       const about = document.getElementById('about');
-      const h = window.innerHeight || 1;
-      const docHeight = document.documentElement.scrollHeight;
-      // Start a bit after About begins; finish at 95% of document height
-      const START_OFFSET_VH = 0.15; // 15% viewport above About
-      const DOCUMENT_PERCENTAGE = 0.95; // Complete at 95% of document height (very late)
-      const start = about ? about.getBoundingClientRect().top + window.scrollY - h * START_OFFSET_VH : 0;
-      const end = docHeight * DOCUMENT_PERCENTAGE; // Complete at 95% of total document height
+      const contact = document.getElementById('contact');
+      const start = about ? about.offsetTop : 0;
+      const end = contact
+        ? contact.offsetTop
+        : Math.max(1, document.documentElement.scrollHeight - (window.innerHeight || 1));
       return { start, end };
     };
 
     let bounds = getBounds();
+    let lastDocHeight = document.documentElement.scrollHeight;
 
     const onScroll = () => {
       const y = window.scrollY;
+      const currentHeight = document.documentElement.scrollHeight;
+      if (currentHeight !== lastDocHeight) {
+        lastDocHeight = currentHeight;
+        bounds = getBounds();
+      }
       const { start, end } = bounds;
       const clamped = Math.min(1, Math.max(0, (y - start) / Math.max(1, end - start)));
       const pct = Math.round(clamped * 100);
@@ -30,14 +34,24 @@ const ScrollShowcase = React.memo(() => {
       setVisible(y >= start && y <= end);
     };
 
-    const onResize = () => { bounds = getBounds(); onScroll(); };
+    const onResize = () => { bounds = getBounds(); lastDocHeight = document.documentElement.scrollHeight; onScroll(); };
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
+    window.addEventListener('load', onResize);
+
+    // Observe DOM mutations that can affect layout (e.g., images loading)
+    const observer = new MutationObserver(() => {
+      // Debounced via requestAnimationFrame to avoid thrash
+      window.requestAnimationFrame(onResize);
+    });
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
     onResize();
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
+      window.removeEventListener('load', onResize);
+      observer.disconnect();
     };
   }, []);
 
