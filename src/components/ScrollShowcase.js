@@ -44,12 +44,10 @@ const ScrollShowcase = React.memo(() => {
   return (
     <div className="fx-wrapper" aria-hidden={!visible}>
       <section className={`fx-pinner fx-fluid ${visible ? 'fx-visible' : ''}`} aria-label="Scroll Showcase" style={{ '--fx-progress': progress, '--p': progress }}>
-        <div className="fx-progress">
-          <span className="sr-only">{progress}% complete</span>
-          <span className="fx-sync">
-          </span>
-        </div>
         <div className="fx-heading">
+          <div className="fx-progress fx-progress--heading">
+            <span className="fx-progress-text">{progress}% complete</span>
+          </div>
           <div className="fx-measure"></div>
           <h1 spellCheck="false" style={{ backgroundPositionX: `calc(200% - ${progress}%)` }}>
             Where lasers sketch the terrain, I craft the roads you travel in code.

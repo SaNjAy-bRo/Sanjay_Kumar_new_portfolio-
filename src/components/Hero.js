@@ -66,8 +66,10 @@ const Hero = React.memo(() => {
                 <div className="profile-image">
                   <img 
                     src="/Sanjoker.jpeg" 
-                    alt="Sanjay Kumar" 
+                    alt="Portrait of Sanjay Kumar" 
                     className="hero-profile-photo"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="floating-elements">

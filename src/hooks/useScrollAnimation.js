@@ -5,7 +5,6 @@ export const useScrollAnimation = (options = {}) => {
   const {
     threshold = 0.1,
     rootMargin = '0px 0px -50px 0px',
-    animationClass = 'animate-in',
     delay = 0
   } = options;
 
@@ -13,15 +12,37 @@ export const useScrollAnimation = (options = {}) => {
     const element = elementRef.current;
     if (!element) return;
 
-    // Add animation class immediately to ensure visibility
-    element.classList.add(animationClass);
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add(animationClass);
+              // Add animate-in to the section itself
+              entry.target.classList.add('animate-in');
+
+              // Add animate-in to any descendant that has a base animation class
+              const animatedDescendants = entry.target.querySelectorAll(
+                [
+                  '.fade-in',
+                  '.slide-in-left',
+                  '.slide-in-right',
+                  '.slide-in-up',
+                  '.scale-in',
+                  '.rotate-in',
+                  '.stagger-container',
+                  '.education-timeline-item',
+                  '.education-card',
+                  '.progress-bar',
+                  '.counter',
+                  '.glow-on-scroll',
+                  '.text-reveal',
+                  '.card-inner',
+                  '.card-flip',
+                  '.wave-animation',
+                  '.bounce-in'
+                ].join(', ')
+              );
+              animatedDescendants.forEach((el) => el.classList.add('animate-in'));
             }, delay);
           }
         });
@@ -37,7 +58,7 @@ export const useScrollAnimation = (options = {}) => {
     return () => {
       observer.unobserve(element);
     };
-  }, [threshold, rootMargin, animationClass, delay]);
+  }, [threshold, rootMargin, delay]);
 
   return elementRef;
 };
