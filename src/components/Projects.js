@@ -59,18 +59,31 @@ const Projects = () => {
       liveUrl: 'https://jsbootcamp.com',
       githubUrl: 'https://github.com/SaNjAy-bRo',
       featured: false
+    },
+    {
+      id: 6,
+      title: 'Snake Game',
+      description: 'A classic Snake Game reimagined with modern aesthetics. Features smooth controls, high score tracking, and a responsive layout that works perfectly on both desktop and mobile devices.',
+      image: '/snake.png',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+      category: 'game',
+      liveUrl: 'https://snake-game-sage-two.vercel.app/',
+      githubUrl: 'https://github.com/SaNjAy-bRo/Snake-Game',
+      featured: false
     }
+
   ];
 
   const categories = [
     { key: 'all', label: 'All Projects' },
     { key: 'web', label: 'Web Development' },
     { key: 'mobile', label: 'Mobile Apps' },
-    { key: 'ai', label: 'AI/ML' }
+    { key: 'ai', label: 'AI/ML' },
+    { key: 'game', label: 'Games' }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
@@ -95,8 +108,8 @@ const Projects = () => {
 
         <div className="projects-grid">
           {filteredProjects.map((project, index) => (
-            <div 
-              key={project.id} 
+            <div
+              key={project.id}
               className={`project-card ${project.featured ? 'featured' : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -104,17 +117,17 @@ const Projects = () => {
                 <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                 <div className="project-overlay">
                   <div className="project-links">
-                    <a 
-                      href={project.liveUrl} 
-                      target="_blank" 
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="project-link"
                     >
                       <span>Live Demo</span>
                     </a>
-                    <a 
-                      href={project.githubUrl} 
-                      target="_blank" 
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="project-link"
                     >
@@ -145,7 +158,7 @@ const Projects = () => {
           <div className="cta-card">
             <h3>Interested in working together?</h3>
             <p>Let's discuss your next project and bring your ideas to life.</p>
-            <button 
+            <button
               className="btn btn-primary"
               onClick={() => {
                 const contactSection = document.getElementById('contact');
