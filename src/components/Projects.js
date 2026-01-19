@@ -70,8 +70,29 @@ const Projects = () => {
       liveUrl: 'https://snake-game-sage-two.vercel.app/',
       githubUrl: 'https://github.com/SaNjAy-bRo/Snake-Game',
       featured: false
+    },
+    {
+      id: 7,
+      title: 'TaskFlow Dashboard',
+      description: 'An internal Task Management System built with NestJS, Prisma, and Next.js. Designed to demonstrate scalable architecture, modular backend design, and modern frontend patterns.',
+      image: '/taskflow.png',
+      technologies: ['Next.js', 'NestJS', 'Prisma', 'Tailwind CSS', 'TypeScript'],
+      category: 'web',
+      liveUrl: 'https://task-management-system-delta-lac.vercel.app/',
+      githubUrl: 'https://github.com/SaNjAy-bRo',
+      featured: true
+    },
+    {
+      id: 8,
+      title: 'Gesture Arena',
+      description: 'A futuristic, browser-based motion-controlled gaming platform. Transforms your webcam into a game controller using advanced MediaPipe computer vision.',
+      image: '/gesture_arena.png',
+      technologies: ['React', 'MediaPipe', 'Vite', 'Tailwind CSS'],
+      category: 'game',
+      liveUrl: 'https://gesturearena.vercel.app/',
+      githubUrl: 'https://github.com/SaNjAy-bRo',
+      featured: true
     }
-
   ];
 
   const categories = [
