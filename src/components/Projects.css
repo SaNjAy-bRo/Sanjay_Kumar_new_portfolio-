@@ -294,12 +294,40 @@
   }
 
   .project-filters {
-    gap: 10px;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    
+    /* Hide scrollbar but keep functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .project-filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-btn {
     padding: 8px 20px;
     font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  /* Fix Overlay on Mobile: Make links always visible below image or persistent overlay */
+  .project-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+  
+  .project-links {
+    transform: translateY(0);
   }
 
   .project-card {
@@ -321,9 +349,13 @@
     font-size: 2rem;
   }
 
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Don't force column layout on smallest screens for filters, keep scrolling */
   .project-filters {
-    flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
   }
 
   .filter-btn {

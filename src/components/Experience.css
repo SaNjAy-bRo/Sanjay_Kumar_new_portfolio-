@@ -475,7 +475,7 @@
     max-width: 100% !important;
     padding: 0 80px;
   }
-  
+
   .experience-work-card {
     width: 90% !important;
     max-width: none !important;
@@ -488,32 +488,37 @@
     max-width: 100% !important;
     padding: 0 40px;
   }
-  
+
   .experience-work-card {
     width: 95% !important;
     max-width: none !important;
     min-width: 600px !important;
   }
-  
+
   .experience-timeline-content {
     max-width: none;
   }
-  
+
   .experience-work-card {
     padding: 50px;
   }
+
   .experience-title {
     font-size: 1.8rem;
   }
+
   .experience-company {
     font-size: 1.1rem;
   }
+
   .experience-description {
     font-size: 0.95rem;
   }
+
   .project-title {
     font-size: 1.2rem;
   }
+
   .tech-tag {
     font-size: 0.8rem;
     padding: 4px 8px;
@@ -537,13 +542,15 @@
     max-width: 100%;
     padding: 0 20px;
   }
-  
+
   .experience-work-card {
-    width: 98% !important;
+    width: 100% !important;
     max-width: none !important;
-    min-width: 400px !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    /* Ensure padding doesn't add to width */
   }
-  
+
   .experience-timeline-content {
     max-width: 100%;
     margin: 0;
@@ -612,6 +619,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -623,6 +631,7 @@
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);

@@ -31,7 +31,7 @@ const Education = () => {
           // Subtle speeds per marker
           const speed = 0.15 + index * 0.08;
           const yPos = -distanceFromCenter * speed; // move opposite to scroll
-          const rotation = -distanceFromCenter * 0.03; // slight rotate
+          const rotation = -distanceFromCenter * 0.3; // slight rotate
 
           element.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
           element.style.opacity = '1';
